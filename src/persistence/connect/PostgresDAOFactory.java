@@ -1,6 +1,7 @@
 package persistence.connect;
 
 import persistence.dao.CalciatoreDao;
+import persistence.dao.UtenteDao;
 
 class PostgresDAOFactory extends DAOFactory {
 private static  DataSource dataSource;
@@ -23,10 +24,16 @@ private static  DataSource dataSource;
 	public CalciatoreDao getCalciatoreDAO() {
 		return new CalciatoreDaoJDBC(dataSource);
 	}
-
+    
 	
 	@Override
 	public UtilDao getUtilDAO(){
 		return new UtilDao(dataSource);
+	}
+
+
+	@Override
+	public UtenteDao getUtenteDao() {
+		return new UtenteDaoJDBC(dataSource);
 	}
 }
