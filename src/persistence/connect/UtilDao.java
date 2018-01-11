@@ -79,10 +79,12 @@ public  void resetDatabase() {
 		try {
 			String delete = "delete FROM calciatore";
 			PreparedStatement statement = connection.prepareStatement(delete);
+			statement.executeUpdate();
+			
 			String delete1 = "delete FROM utente";
 			statement = connection.prepareStatement(delete1);
-			
 			statement.executeUpdate();
+			
 		} catch (SQLException e) {
 			
 			throw new PersistenceException(e.getMessage());

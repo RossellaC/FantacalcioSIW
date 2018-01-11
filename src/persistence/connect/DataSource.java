@@ -2,8 +2,8 @@ package persistence.connect;
 
 import java.sql.*;
 
-class DataSource {
-	final private String dbURI;// = "jdbc:postgresql://localhost/Fantacalcio";
+public class DataSource {
+	final private String dbURI;  // = "jdbc:postgresql://localhost/Fantacalcio";
 	final private String userName;// = "postgres";
 	final private String password;// = "postgres";
 	
@@ -14,6 +14,7 @@ class DataSource {
 		this.userName=userName;
 		this.password=password;
 	}
+	
 
 	public Connection getConnection() throws PersistenceException {
 		Connection connection = null;
@@ -26,4 +27,7 @@ class DataSource {
 		}
 		return connection;
 	}
+	
+	
+	
 }

@@ -4,7 +4,7 @@ import persistence.dao.CalciatoreDao;
 import persistence.dao.UtenteDao;
 
 class PostgresDAOFactory extends DAOFactory {
-private static  DataSource dataSource;
+public static  DataSource dataSource;
 	
 
 	static {
@@ -34,6 +34,9 @@ private static  DataSource dataSource;
 
 	@Override
 	public UtenteDao getUtenteDao() {
-		return new UtenteDaoJDBC(dataSource);
+	return new UtenteDaoJDBC(dataSource);
+		
 	}
+
+
 }
