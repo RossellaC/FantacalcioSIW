@@ -24,10 +24,10 @@ public class UtenteDaoJDBC  implements UtenteDao{
 	}
 	
 	@Override
-	public void addUtente(Utente utente) {
+	public void save(Utente utente) {
 		// TODO Auto-generated method stub
 		Connection connection = this.dataSource.getConnection();
-		DatabaseManager.getInstance().getDaoFactory().getUtenteDao();
+		//DatabaseManager.getInstance().getDaoFactory().getUtenteDao();
 		
 		try {
 			String insert = "insert into utente(username,password,nome,cognome,email) values(?,?,?,?,?)";
@@ -154,4 +154,6 @@ public class UtenteDaoJDBC  implements UtenteDao{
 			return true;
 		return false;
 	}
+
+	
 	}

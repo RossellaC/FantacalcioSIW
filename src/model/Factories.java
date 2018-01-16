@@ -8,7 +8,7 @@ public class Factories {
 	
 	private Factories() {}
 	
-	public static Factories getIstance() {
+	public static Factories getInstance() {
 	return  factories;
 	}
 	

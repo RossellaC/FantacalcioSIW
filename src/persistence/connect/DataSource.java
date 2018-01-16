@@ -3,7 +3,7 @@ package persistence.connect;
 import java.sql.*;
 
 public class DataSource {
-	final private String dbURI;  // = "jdbc:postgresql://localhost/Fantacalcio";
+	final private String dbURI;  // = "jdbc:postgresql://localhost/test";
 	final private String userName;// = "postgres";
 	final private String password;// = "postgres";
 	

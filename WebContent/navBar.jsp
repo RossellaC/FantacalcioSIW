@@ -70,7 +70,13 @@ iniziale, relativo al momento in cui la pagina viene caricata. -->
 									</ul>
 								</li>
 							</ul>
-							
+							<script> 
+								$("#logout").click(
+										function() {
+											window.location.href = "LogoutServlet";
+										}
+								);
+							</script>
 					<%} %>
           </div>
           </div>
