@@ -1,6 +1,7 @@
 package persistence.connect;
 
-import persistence.dao.CalciatoreDao;
+import persistence.dao.CalciatoreDao; 
+import persistence.dao.UtenteDao;
 
 public abstract class DAOFactory {
 
@@ -24,7 +25,7 @@ public abstract class DAOFactory {
 	
 	
 	public abstract CalciatoreDao getCalciatoreDAO();
-
-	public abstract persistence.connect.UtilDao getUtilDAO();
+	public abstract UtenteDao getUtenteDao();
+    public abstract persistence.connect.UtilDao getUtilDAO();
 
 }

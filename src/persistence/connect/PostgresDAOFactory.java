@@ -1,20 +1,21 @@
 package persistence.connect;
 
 import persistence.dao.CalciatoreDao;
+import persistence.dao.UtenteDao;
 
 class PostgresDAOFactory extends DAOFactory {
-private static  DataSource dataSource;
+public static  DataSource dataSource;
 	
 
 	static {
 		try {
-			Class.forName("org.postgresql.Driver").newInstance();
+			Class.forName("org.postgresql.Driver");
 			
 //			dataSource=new DataSource("jdbc:postgresql://52.39.164.176:5432/xx","xx","p@xx");
 			dataSource=new DataSource("jdbc:postgresql://localhost:5432/Fantacalcio","postgres","postgres");
 		} 
 		catch (Exception e) {
-			System.err.println("PostgresDAOFactory.class: failed to load MySQL JDBC driver\n"+e);
+			System.err.println("PostgresDAOFactory.class: failed to load Postgres JDBC driver\n"+e);
 			e.printStackTrace();
 		}
 	}
@@ -23,10 +24,19 @@ private static  DataSource dataSource;
 	public CalciatoreDao getCalciatoreDAO() {
 		return new CalciatoreDaoJDBC(dataSource);
 	}
-
+    
 	
 	@Override
 	public UtilDao getUtilDAO(){
 		return new UtilDao(dataSource);
 	}
+
+
+	@Override
+	public UtenteDao getUtenteDao() {
+	return new UtenteDaoJDBC(dataSource);
+		
+	}
+
+
 }

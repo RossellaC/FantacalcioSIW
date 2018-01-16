@@ -1,6 +1,6 @@
 package persistence.connect;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -111,7 +111,7 @@ public class CalciatoreDaoJDBC  implements CalciatoreDao{
 	public void update(Calciatore calciatore) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update = "update studente SET nome = ?, squadra = ?, dataNascita = ?, ruolo = ? , costo =?  WHERE codice=?";
+			String update = "update calciatore SET nome = ?, squadra = ?, dataNascita = ?, ruolo = ? , costo =?  WHERE codice=?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, calciatore.getNome());
 			statement.setString(2,  calciatore.getSquadra());
