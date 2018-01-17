@@ -36,7 +36,7 @@ public class IscrizioneUtente extends HttpServlet {
 			// TODO Auto-generated method stub
 			//response.getWriter().append("Served at: ").append(request.getContextPath());
 			RequestDispatcher dispacher = 
-					request.getRequestDispatcher("Home.jsp");
+					request.getRequestDispatcher("utentePanel.jsp");
 			dispacher.forward(request, response);
 		
 		}
@@ -63,7 +63,7 @@ public class IscrizioneUtente extends HttpServlet {
 			
 			
 			RequestDispatcher dispacher = 
-					request.getRequestDispatcher("Home.jsp");
+					request.getRequestDispatcher("utentePanel.jsp");
 			dispacher.forward(request, response);
 			
 			

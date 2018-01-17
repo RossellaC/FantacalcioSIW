@@ -94,34 +94,7 @@ public class UtenteDaoJDBC  implements UtenteDao{
 			}
 		}
 	}
-	public JSONObject getAllUtenti() {
-		JSONObject json = new JSONObject();
-		JSONArray utenti = new JSONArray();
-		Connection connection = this.dataSource.getConnection();
-		try {
-		 String query = "select * from utente ;";
-			 PreparedStatement ps = connection.prepareStatement(query);
-			 ResultSet mResultSet = ps.executeQuery();
-			
-			if(mResultSet != null) {
-				while (mResultSet.next()) {
-					JSONObject utente = new JSONObject();
-					utente.put("username", mResultSet.getString("username"));
-					utente.put("password", mResultSet.getString("password"));
-					utente.put("nome", mResultSet.getString("nome"));
-					utente.put("cognome", mResultSet.getString("cognome"));
-					utente.put("email", mResultSet.getString("email"));
-					utenti.put(utente);
-					
-				}
-			}
-			
-			json.put("utenti", utenti);
-			connection.close();
-		}catch(Exception e){}
-		
-		return json;
-	}
+	
 
 	@Override
 	public Utente getUtente( String username){

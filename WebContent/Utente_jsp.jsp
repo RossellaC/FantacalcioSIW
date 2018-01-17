@@ -111,7 +111,7 @@
                 <label>F<input type="radio" name="sesso" value="F"/></label></p>
 			<div class="form-group">
 				<div class="col-sm-9 col-md-9 col-lg-9 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
-					<button href="utentePanel.jsp" type="submit" id="submitForm" value="register"
+					<button type="submit" id="submitForm" value="register"
 						class="btn btn-primary btn-block">Registrazione<span
 						id="glyphiconSubmitForm"> </span></button>
 					<div id="errSubmitForm"></div>
