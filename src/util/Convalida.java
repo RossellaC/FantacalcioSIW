@@ -45,13 +45,5 @@ public class Convalida {
 			return false;
 	}
 
-	/** check the correct input of a date */
-	public boolean checkInputDate(String dateEntered){
-		/**Format date = 2016-09-08 */ 
-		String datePattern = "\\d{4}-\\d{2}-\\d{2}";
-	    if (!Pattern.matches(datePattern,dateEntered) )
-	        return false; 
-	    return true;
-	}
 	
 }

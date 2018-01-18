@@ -6,9 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="js/jquery-3.1.1.js"></script>
-<title>Login</title>
+<LINK rel="stylesheet" href="css/Accedi.css" type="text/css">
+<title>Accedi</title>
 </head>
-<body>
+<body style="background-color:black">
 	<jsp:include page="navBar.jsp"></jsp:include>
 	
 	<div class="container">
