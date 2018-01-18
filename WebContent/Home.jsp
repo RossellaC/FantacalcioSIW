@@ -1,4 +1,8 @@
- <html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page import="model.Utente" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 
 <head lang="it">
 	<title>Gioco_Fantacalcio</title>
@@ -25,7 +29,6 @@
 	</head>
 
 <body>
-
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -42,15 +45,14 @@
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Info <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Video</a></li>
-            <li><a href="#">Articolo</a></li>
+            <li><a href="TutorialGioco.jsp">TutorialGioco</a></li>
+            <li><a href="DoveSiamo.jsp">DoveSiamo</a></li>
           </ul>
         </li>
  </ul>
-      
-      <ul class="nav navbar-nav navbar-right">
+       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-        <a  href="report/Utente.jsp"><span class="glyphicon glyphicon-user"> </span> Registrati</a>
+        <a  href="Utente_jsp.jsp"><span class="glyphicon glyphicon-user"> </span> Registrati</a>
         
           </li>
           

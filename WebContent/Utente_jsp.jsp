@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="model.Utente"%>
+	
+<jsp:useBean id="stud" class="model.Utente" scope="request"></jsp:useBean>
+<jsp:setProperty property="nome" name="stud" value="un Nome"/>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -33,8 +36,8 @@
   Utilizzare sempre POST se i dati del modulo contengono informazioni sensibili o personali. 
   Il metodo POST non visualizza i dati del modulo inviato nel campo dell'indirizzo della pagina.
 	 -->
-	 
-		 <form action="UtenteServlet" class="form horizontal" role="form" method="post"> 
+
+		 <form action="IscrizioneUtente" class="form horizontal" role="form" method="post"> 
 			<div class="well" id="registration" style="text-align: center;">
 				<h2>Registrazione</h2>
 			</div>
@@ -131,13 +134,13 @@
 			</div>
 		</footer>
 		</div>
+		<script type="text/javascript">
 
-<script type="text/javascript">
 	function checkUsername(username){
 		if(username!=""){
 				$.ajax({
 					type: "POST",
-					url: "UtenteController",
+					url: "CheckUtenteController",
 					data: {username:username},
 					
 	                success: function( data, status) {
@@ -181,7 +184,7 @@
 	                },
 	                
 	                error: function(jqXHR, textStatus, errorThrown){
-	                	console.log("Error into userRegistration.jsp (AJAX - checkUsername(username) ))-->" + textStatus);
+	                	console.log("Error into Utente_jsp.jsp (AJAX - checkUsername(username) ))-->" + textStatus);
 	                }
 	                
 				});
@@ -279,7 +282,7 @@
                 },
                 
 			 	error: function(jqXHR, textStatus, errorThrown){
-			 		console.log("Error into userRegistration.jsp (AJAX - checkPassword() ))-->" + textStatus);
+			 		console.log("Error into Utente_jsp.jsp (AJAX - checkPassword() ))-->" + textStatus);
 			 	}
                 
 			});

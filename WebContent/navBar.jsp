@@ -35,8 +35,8 @@ iniziale, relativo al momento in cui la pagina viene caricata. -->
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Info <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Video</a></li>
-            <li><a href="#">Articolo</a></li>
+             <li><a href="TutorialGioco.jsp">TutorialGioco</a></li>
+            <li><a href="DoveSiamo.jsp">DoveSiamo</a></li>
           </ul>
         </li>
  </ul>
@@ -70,7 +70,13 @@ iniziale, relativo al momento in cui la pagina viene caricata. -->
 									</ul>
 								</li>
 							</ul>
-							
+							<script> 
+								$("#logout").click(
+										function() {
+											window.location.href = "LogoutServlet";
+										}
+								);
+							</script>
 					<%} %>
           </div>
           </div>

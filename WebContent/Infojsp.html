@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--  esistono 3 azioni standard   di beans che interagiscono con gli oggetti
+di una classe java avente costruttore public senza argomento e i 
+metodi set e get poichè devono essere creati automaticamnete da
+tomcat  e l'oggetto creato rimane a disposizione in un contenitore di
+oggetti dalle altre pag jsp e possono essere condivise e sono 
+<jsp:useBean>
+
+sintassi <jsp:useBean id="name" class="package.class" scope=/>
+simile a new ma più "intelligente" vede se è stato craetore e se è stato creato mi
+restituisce un riferimento altrimenti lo crea mentre la new lo crea 
+ogni volta l'oggetto nuovo
+ id =nonme istanza class =nome  scope=ambito(contenitore) dove si trova il bean
+ e ci sono 4 contenitori diversi e sono page/request/session/application
+e differiscono sono in quando vengono svuotate
+ page =si svuota quando una pag jsp termina la sua esecuzione
+ request= quando una richiesta http viene soddisfatta da risposta http
+ session= quando una sessione di navigazione scade
+ application= quando spengo o riavvio tomcat
+
+<jsp:setProperty>
+<jsp:getProperty>
+
+
+
+-->
