@@ -2,6 +2,7 @@ package persistence.connect;
 
 import persistence.dao.CalciatoreDao;
 import persistence.dao.CompostaDao;
+import persistence.dao.GiocaDao;
 import persistence.dao.InvitoDao;
 import persistence.dao.LegaDao;
 import persistence.dao.PartitaDao;
@@ -39,4 +40,5 @@ public abstract class DAOFactory {
     public abstract SquadraDao getSquadraDao();
     public abstract CompostaDao getCompostaDao();
     public abstract PartitaDao getPartitaDao();
+    public abstract GiocaDao getGiocaDao();
 }

@@ -2,6 +2,7 @@ package persistence.connect;
 
 import persistence.dao.CalciatoreDao;
 import persistence.dao.CompostaDao;
+import persistence.dao.GiocaDao;
 import persistence.dao.InvitoDao;
 import persistence.dao.LegaDao;
 import persistence.dao.PartitaDao;
@@ -69,5 +70,10 @@ class PostgresDAOFactory extends DAOFactory {
 	@Override
 	public PartitaDao getPartitaDao() {
 		return new PartitaDaoJDBC(dataSource);
+	}
+
+	@Override
+	public GiocaDao getGiocaDao() {
+		return new GiocaDaoJDBC(dataSource);
 	}
 }

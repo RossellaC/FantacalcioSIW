@@ -31,7 +31,7 @@ public class PartitaRealeDaoJDBC implements PartitaRealeDao {
 	@Override
 	public void save(PartitaReale pr) {
 		Connection connection = this.dataSource.getConnection();
-		String insert = "INSERT INTO \"public\".\"partita_reale\" (data_partita,squadra1,squadra2) VALUES (?, ?, ?);";
+		String insert = "INSERT INTO public.partita_reale (data_partita,squadra1,squadra2) VALUES (?, ?, ?);";
 		try {
 			PreparedStatement ps = connection.prepareStatement(insert);
 			long secs = pr.getDataPartita().getTime();
