@@ -22,7 +22,6 @@ public class PasswordController extends HttpServlet {
      */
     public PasswordController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**

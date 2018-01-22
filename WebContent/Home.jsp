@@ -7,6 +7,10 @@
 <head lang="it">
 	<title>Gioco_Fantacalcio</title>
 	<meta charset="utf-8" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
+  <script src="${pageContext.request.contextPath}/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	<LINK rel="stylesheet" href="${pageContext.request.contextPath}/css/indexCss.css" type="text/css">
 	<style type="text/css">
  body {
     height: 100%;
@@ -22,10 +26,6 @@
     background-size: cover;
 }
 	</style>
-	<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
-  <script src="js/jquery-3.2.1.min.js"></script>
-  <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-	<LINK rel="stylesheet" href="css/indexCss.css" type="text/css">
 	</head>
 
 <body>
@@ -65,7 +65,7 @@
 <header  align="center" class="row">
 
 	<figure style=" text-align: center" class="col-lg-3">		
-	<a href="images/pT.jpg"><img class="img-thumbnail" src="images/pT.jpg"  width="300" /></a>
+	<a href="images/pT.jpg"><img class="img-thumbnails" src="${pageContext.request.contextPath}/images/pT.jpg"  width="300" /></a>
 	</figure>
 	<hgroup class="col-lg-7">
 	<h1>Fantacalcio</h1>

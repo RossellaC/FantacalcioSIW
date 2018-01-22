@@ -25,7 +25,6 @@ public class ScegliCalciatoriServlet extends HttpServlet {
      */
     public ScegliCalciatoriServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**

@@ -21,14 +21,12 @@ public class CheckPassController extends HttpServlet {
      */
     public CheckPassController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doPost(request, response);
 	}
 
@@ -43,8 +41,6 @@ public class CheckPassController extends HttpServlet {
 			response.getWriter().write("success");
 		else
 			response.getWriter().write("warning");
-
-		
 	}
 
 }

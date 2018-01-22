@@ -26,14 +26,12 @@ public class AccediServlet extends HttpServlet {
      */
     public AccediServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -46,14 +44,14 @@ public class AccediServlet extends HttpServlet {
 		UtenteDao utenteDao =DatabaseManager.getInstance().getDaoFactory().getUtenteDao();
 		Utente esistente=utenteDao.getUtente(username);
 		
-		if(esistente.getPassword().equals(password)) {
+		if(esistente != null && esistente.getPassword() != null && esistente.getPassword().equals(password)) {
 			out.print("utente valido");
 			request.getSession().setAttribute("utente" ,ut);
 			request.getSession().setAttribute("username", ut.getNome());
 			response.sendRedirect("utentePanel.jsp");
 		}
 		else
-			out.print("utente non valido");
+			response.sendRedirect("ErrorePag.jsp");
 			
 		out.close();
 		
@@ -64,7 +62,6 @@ public class AccediServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
