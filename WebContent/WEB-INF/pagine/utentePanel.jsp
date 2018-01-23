@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List"%>
+<%@ page import="model.Utente"%>
+<%@ page import="model.Lega"%>
+<jsp:useBean id="leghe" scope="request" type="List<Lega>" />
 <!DOCTYPE html>
 <html lang="it">
 
@@ -26,26 +30,45 @@
 	<%
 		if (request.getSession().getAttribute("utente") != null) {
 	%>
-	<jsp:include page="navBar.jsp"></jsp:include>
-	  <div class="jumbotron">
-    <h1>Benvenuto</h1>      
-    <p>Inizia a giocare</p>
-  </div>
+	<jsp:include page="/WEB-INF/pezzi/navBar.jsp"></jsp:include>
+	<div class="jumbotron">
+		<h1>Benvenuto</h1>      
+		<p>Inizia a giocare</p>
+	</div>
 	<div id="sidebar-wrapper">
+		<h5>Le mie leghe</h5>
+		<%
+			if(leghe.size() > 0) {
+		%>
+			<div class="list-group">
+		<%
+				for(Lega l : leghe) {
+		%>
+				<a href="${pageContext.request.contextPath}/dettagliLega?id=<%= l.getId() %>" class="list-group-item list-group-item-action"><%= l.getNome() %></a>
+		<%
+				}
+		%>
+			</div>
+		<%
+			} else {
+		%>
+			<p>Non hai accesso a nessuna lega.</p>
+		<%
+			}
+		%>
 		<ul class="sidebar-nav">
 			<li class="sidebar-brand"><a href="${pageContext.request.contextPath}/creaLega">Crea una Lega</a></li>
 			<li class="sidebar-brand"><a> ListaCalciatori </a></li>
 			<li><a href="#">Crae una Rosa</a></li>
-			
 		</ul>
 	
+	</div>
 	<!-- /#sidebar-wrapper -->
 	<%
 		} else {
 	%>
 
-		<jsp:include page="ErrorePag.jsp"></jsp:include>
-</div>
+		<jsp:include page="/ErrorePag.jsp"></jsp:include>
 	<%
 		}
 	%>

@@ -64,7 +64,7 @@ public class SquadraDaoJDBC implements SquadraDao {
 	@Override
 	public List<Squadra> getAllSquadre() {
 		Connection connection = this.dataSource.getConnection();
-		List<Squadra> inviti = new LinkedList<>();
+		List<Squadra> squadre = new LinkedList<>();
 		try {
 			Squadra l = null;
 			PreparedStatement statement;
@@ -76,7 +76,7 @@ public class SquadraDaoJDBC implements SquadraDao {
 				l.setFkLega(rs.getLong("fk_lega"));
 				l.setFkUtente(rs.getString("fk_utente"));
 				l.setNome(rs.getString("nome"));
-				inviti.add(l);
+				squadre.add(l);
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -87,7 +87,7 @@ public class SquadraDaoJDBC implements SquadraDao {
 				throw new PersistenceException(e.getMessage());
 			}
 		}
-		return inviti;
+		return squadre;
 	}
 
 	@Override
@@ -117,6 +117,37 @@ public class SquadraDaoJDBC implements SquadraDao {
 			}
 		}
 		return invito;
+	}
+
+	@Override
+	public List<Squadra> getSquadreLega(Long id) {
+		Connection connection = this.dataSource.getConnection();
+		List<Squadra> squadre = new LinkedList<>();
+		try {
+			Squadra l = null;
+			PreparedStatement statement;
+			String query = "SELECT fk_lega, fk_utente, nome "
+					+ "FROM public.squadra WHERE fk_lega = ?;";
+			statement = connection.prepareStatement(query);
+			statement.setLong(1, id);
+			ResultSet rs = statement.executeQuery();
+			while (rs.next()) {
+				l = new Squadra();
+				l.setFkLega(rs.getLong("fk_lega"));
+				l.setFkUtente(rs.getString("fk_utente"));
+				l.setNome(rs.getString("nome"));
+				squadre.add(l);
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		}	 finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return squadre;
 	}
 
 }

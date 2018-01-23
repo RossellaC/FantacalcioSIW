@@ -120,5 +120,39 @@ public class InvitoDaoJDBC implements InvitoDao {
 		}
 		return invito;
 	}
+
+	@Override
+	public List<Invito> getInvitiPerLega(String inviante, Long id) {
+		Connection connection = this.dataSource.getConnection();
+		List<Invito> inviti = new LinkedList<>();
+		try {
+			Invito l = null;
+			PreparedStatement statement;
+			String query = "SELECT fk_utente_invia, fk_utente_riceve, fk_lega, accettazione "
+					+ "FROM public.invito "
+					+ "WHERE fk_utente_invia = ? AND fk_lega = ?;";
+			statement = connection.prepareStatement(query);
+			statement.setString(1, inviante);
+			statement.setLong(2, id);
+			ResultSet rs = statement.executeQuery();
+			while (rs.next()) {
+				l = new Invito();
+				l.setFkUtenteInvia(rs.getString("fk_utente_invia"));
+				l.setFkUtenteRiceve(rs.getString("fk_utente_riceve"));
+				l.setFkLega(rs.getLong("fk_lega"));
+				l.setAccettazione(rs.getBoolean("accettazione"));
+				inviti.add(l);
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		}	 finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return inviti;
+	}
 	
 }

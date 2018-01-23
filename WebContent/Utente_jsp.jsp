@@ -6,74 +6,67 @@
 
 <!DOCTYPE html>
 <html lang="it">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="js/jquery-3.1.1.js"></script>
-
-<!--       -->
-<script src="js/validateInput.js"></script>
-
-<!-- -->
-
- 
-<!-- Bootstrap Core CSS -->
-<title>Registrazione</title>
-
-</head>
-
-<body>
-<jsp:include page="navBar.jsp"></jsp:include>
-	<div class="container well">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="${pageContext.request.contextPath}/js/jquery-3.1.1.js"></script>
+		<script src="${pageContext.request.contextPath}/js/validateInput.js"></script>
+		<!-- Bootstrap Core CSS -->
+		<title>Registrazione</title>
+	</head>
+	<body>
+		<jsp:include page="navBar.jsp"></jsp:include>
+		<div class="container well">
 	
-	<!--                          
-	L' attributo action definisce l'azione da eseguire quando viene inviato il modulo.
-  Normalmente, i dati del modulo vengono inviati a una pagina Web sul server quando l'utente fa clic sul pulsante di invio.
-  Nell'esempio sopra, i dati del modulo vengono inviati a una pagina sul server 
-  chiamata "UtenteServlet". Questa pagina contiene uno script sul lato server che gestisce i dati del modulo:
-  
-  L' attributo method specifica il metodo HTTP ( GET o POST ) da utilizzare quando si inviano i dati del modulo:
-  Il metodo predefinito quando si inviano i dati del modulo è GET.
-  Utilizzare sempre POST se i dati del modulo contengono informazioni sensibili o personali. 
-  Il metodo POST non visualizza i dati del modulo inviato nel campo dell'indirizzo della pagina.
-	 -->
-
-		 <form action="IscrizioneUtente" class="form horizontal" role="form" method="post"> 
-			<div class="well" id="registration" style="text-align: center;">
-				<h2>Registrazione</h2>
-			</div>
-			<div class="form-group" id="nameForm">
-			<!-- il tag label fornisce un miglioramento dell'usabilità per gli utenti del mouse,
-			 perché se l'utente fa clic sul testo all'interno dell'elemento <label>, attiva il controllo. -->
-				<label for="nome" class="col-sm-3 col-md-3 col-lg-3 control-label" id="nome">Nome
-					<span> (Necessario)</span>
-				</label>
-				<div class="col-sm-9 col-md-9 col-lg-9">
-					<input type="text" class="form-control" name="nome"
-						id="inputName" placeholder="Name" onblur="validateInputString(this.value,this.id)" required> <span
-						id="glyphiconFormName"> </span> <span class="help-block">Es.
-						Francesco<small>[Minimum 3 and maximum 15 letter]</small></span>
-					<div id="errName"></div>
+		<!--                          
+		L' attributo action definisce l'azione da eseguire quando viene inviato il modulo.
+		Normalmente, i dati del modulo vengono inviati a una pagina Web sul server quando l'utente fa clic sul pulsante di invio.
+		Nell'esempio sopra, i dati del modulo vengono inviati a una pagina sul server 
+		chiamata "UtenteServlet". Questa pagina contiene uno script sul lato server che gestisce i dati del modulo:
+		
+		L' attributo method specifica il metodo HTTP ( GET o POST ) da utilizzare quando si inviano i dati del modulo:
+		Il metodo predefinito quando si inviano i dati del modulo è GET.
+		Utilizzare sempre POST se i dati del modulo contengono informazioni sensibili o personali. 
+		Il metodo POST non visualizza i dati del modulo inviato nel campo dell'indirizzo della pagina.
+		-->
+			<form action="IscrizioneUtente" class="form horizontal" role="form" method="post"> 
+				<div class="well" id="registration" style="text-align: center;">
+					<h2>Registrazione</h2>
 				</div>
-			</div>
-			<div class="form group">
-				<label for="cognome" class="col-sm-3 col-md-3 col-lg-3 control-label" id="cognome">Cognome
-					<span> (Necessario)</span>
-				</label>
-				<div class="col-sm-9 col-md-9 col-lg-9 ">
-					<input type="text" name="cognome" id="cognome" onblur="validateInputString(this.value,this.id)" 
-						placeholder="Surname" class="form-control" required> <span
-						class="help-block">Es. Verdi<small>[Minimum 3 and maximum 15 letter]</small></span>
+				<div class="form-group" id="nameForm">
+				<!-- 
+				il tag label fornisce un miglioramento dell'usabilità per gli utenti del mouse,
+				perché se l'utente fa clic sul testo all'interno dell'elemento <label>, attiva il controllo. 
+				-->
+					<label for="nome" class="col-sm-3 col-md-3 col-lg-3 control-label" id="nome">Nome
+						<span> (Necessario)</span>
+					</label>
+					<div class="col-sm-9 col-md-9 col-lg-9">
+						<input type="text" class="form-control" name="nome"
+							id="inputName" placeholder="Name" onblur="validateInputString(this.value,this.id)" required> <span
+							id="glyphiconFormName"> </span> <span class="help-block">Es.
+							Francesco<small>[Minimum 3 and maximum 15 letter]</small></span>
+						<div id="errName"></div>
+					</div>
 				</div>
-			</div>
-			<div class="form-group" id="emailForm">
-				<label for="email" class="col-sm-3 col-md-3 col-lg-3 control-label">E-mail <span>
-						(Necessario)</span></label>
-				<div class="col-sm-9 col-md-9 col-lg-9 ">
-					<input type="text" name="email" id="email" placeholder="E-mail"
-						class="form-control" onblur="validateEmail(this.value,this.id)" required> <span class="help-block">Es.
-						francescoVerdi@dominio.it</span>
+				<div class="form group">
+					<label for="cognome" class="col-sm-3 col-md-3 col-lg-3 control-label" id="cognome">Cognome
+						<span> (Necessario)</span>
+					</label>
+					<div class="col-sm-9 col-md-9 col-lg-9 ">
+						<input type="text" name="cognome" id="cognome" onblur="validateInputString(this.value,this.id)" 
+							placeholder="Surname" class="form-control" required> 
+						<span class="help-block">Es. Verdi<small>[Minimum 3 and maximum 15 letter]</small></span>
+					</div>
 				</div>
-			</div>
+				<div class="form-group" id="emailForm">
+					<label for="email" class="col-sm-3 col-md-3 col-lg-3 control-label">E-mail 
+						<span>(Necessario)</span>
+					</label>
+					<div class="col-sm-9 col-md-9 col-lg-9 ">
+						<input type="text" name="email" id="email" placeholder="E-mail" class="form-control" onblur="validateEmail(this.value,this.id)" required> 
+						<span class="help-block">Es. francescoVerdi@dominio.it</span>
+					</div>
+				</div>
 			<div class="form-group" id="usernameForm">
 				<label for="username" class="col-sm-3 col-md-3 col-lg-3 control-label" id="username">Username
 					<span> (Necessario)</span>
@@ -138,34 +131,30 @@
 
 	function checkUsername(username){
 		if(username!=""){
-				$.ajax({
-					type: "POST",
-					url: "CheckUtenteController",
-					data: {username:username},
-					
-	                success: function( data, status) {
-	                	var result = data;
-	                	
-	                	if(result == "success"){
-	                		
-	                		$("#usernameForm").addClass("form-group has-success has-feedback");
-	                		$("#glyphiconFormusername").addClass("glyphicon glyphicon-ok form-control-feedback");
-	                		$("#submitForm").unbind();
-	                		$("#submitForm").css("background-color","green");
-	                	}
-	                	else if(result == "error"){
-							$("#usernameForm").addClass("form-group has-error has-feedback");
-							$("#glyphiconFormusername").addClass("glyphicon glyphicon-remove form-control-feedback");
-							$("#submitForm").bind("click",function (event) {
-							    event.preventDefault();
-							});
-							$("#submitForm").css("background-color","red");
-							$("#errSubmitForm")
+			$.ajax({
+				type: "POST",
+				url: "CheckUtenteController",
+				data: {username:username},
+				success: function( data, status) {
+					var result = data;
+					if(result == "success"){
+						$("#usernameForm").addClass("form-group has-success has-feedback");
+						$("#glyphiconFormusername").addClass("glyphicon glyphicon-ok form-control-feedback");
+						$("#submitForm").unbind();
+						$("#submitForm").css("background-color","green");
+	                }
+					else if(result == "error"){
+						$("#usernameForm").addClass("form-group has-error has-feedback");
+						$("#glyphiconFormusername").addClass("glyphicon glyphicon-remove form-control-feedback");
+						$("#submitForm").bind("click",function (event) {
+							event.preventDefault();
+						});
+						$("#submitForm").css("background-color","red");
+						$("#errSubmitForm")
 							.append("<div id='invalidSubmit' class='alert alert-danger'>"
 							+ "<strong>ATTENZIONE!</strong> alcuni dei campi non sono stati riempiti, correggerli per potersi registrare.</div>");
-							
-							$("#inputusername").prop("disabled",true);
-							$("#errusername")
+						$("#inputusername").prop("disabled",true);
+						$("#errusername")
 							.append(
 									"<div id='existusername' class='alert alert-danger'>"
 											+ "<strong>Errore!</strong> username non disponibile, riprova</div>");

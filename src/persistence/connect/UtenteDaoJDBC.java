@@ -126,23 +126,27 @@ public class UtenteDaoJDBC implements UtenteDao {
 		Utente utente = Factories.getIstance().makeUtente();
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String query = "SELECT * FROM utente WHERE username=?";
+			String query = "SELECT nome, cognome, username, email, password "
+					+ "FROM public.utente WHERE username=?;";
 			PreparedStatement ps = connection.prepareStatement(query);
-
 			ps.setString(1, username);
-
 			ResultSet rs = ps.executeQuery();
-
 			if (rs.next()) {
-				utente.setUsername(rs.getString(1));
-				utente.setPassword(rs.getString(2));
+				utente.setNome(rs.getString("nome"));
+				utente.setCognome(rs.getString("cognome"));
+				utente.setUsername(rs.getString("username"));
+				utente.setPassword(rs.getString("password"));
+				utente.setEmail(rs.getString("email"));
 			}
-
-			connection.close();
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			System.out.println("Utente non presente nel DataBase!!!");
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
 		}
-
 		return utente;
 	}
 

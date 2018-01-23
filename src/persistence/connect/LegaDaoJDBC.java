@@ -119,4 +119,36 @@ public class LegaDaoJDBC implements LegaDao {
 		}
 		return pr;
 	}
+
+	@Override
+	public List<Lega> legheUtente(String email) {
+		Connection connection = this.dataSource.getConnection();
+		List<Lega> leghe = new LinkedList<>();
+		try {
+			Lega l;
+			PreparedStatement statement;
+			String query = "SELECT id, budget_iniziale, nome, descrizione, fk_utente FROM public.lega WHERE fk_utente = ?;";
+			statement = connection.prepareStatement(query);
+			statement.setString(1, email);
+			ResultSet rs = statement.executeQuery();
+			while (rs.next()) {
+				l = new Lega();
+				l.setId(rs.getLong("id"));
+				l.setBudgetIniziale(rs.getFloat("budget_iniziale"));
+				l.setNome(rs.getString("nome"));
+				l.setDescrizione(rs.getString("descrizione"));
+				l.setFkUtente(rs.getString("fk_utente"));
+				leghe.add(l);
+			}
+		} catch (SQLException e) {
+			throw new PersistenceException(e.getMessage());
+		}	 finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return leghe;
+	}
 }

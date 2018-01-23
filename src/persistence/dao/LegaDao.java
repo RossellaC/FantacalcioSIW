@@ -9,4 +9,5 @@ public interface LegaDao {
 	public void deleteLega(Lega l);
 	public List<Lega> getAllLega();
 	public Lega findByPrimaryKey(Lega l);
+	public List<Lega> legheUtente(String email);
 }
